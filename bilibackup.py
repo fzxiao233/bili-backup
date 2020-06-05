@@ -28,7 +28,7 @@ def get_video_list(mid, count):
 
 def downloadVideo(video):
     url = f"https://www.bilibili.com/video/av{video['aid']}"
-    title = video['title']
+    title = video['title'].replace("/", "")
     co: list = ['youtube-dl', '-o', title+".ts", url]
     subprocess.run(co)
 
